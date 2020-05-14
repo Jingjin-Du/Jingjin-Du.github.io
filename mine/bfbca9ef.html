@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      gituse | 我的世界
+      Git使用方式 | 我的世界
     
   </title>
   <meta name="author" content="Sariay">
@@ -170,7 +170,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《gituse》
+			当前文章&nbsp;:&nbsp;《Git使用方式》
 		
 	</p>
 
@@ -272,6 +272,20 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
 	 
 
 <div class="layout-post">
@@ -280,7 +294,7 @@
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
 	<a href="/mine/bfbca9ef.html" itemprop="url">
-		gituse
+		Git使用方式
 	</a>
 
 	</div>
@@ -313,7 +327,7 @@
 
 	<a href="/mine/bfbca9ef.html" itemprop="url">
 		<time datetime="2020-05-12T09:39:26.000Z" itemprop="dateUpdated">
-	  		2020-05-12
+	  		2020-05-13
 	  </time>
 	</a> 
 
@@ -332,7 +346,33 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-			
+		<h2 id="Git使用方式"><a href="#Git使用方式" class="headerlink" title="Git使用方式"></a>Git使用方式</h2><h3 id="1、分支处理"><a href="#1、分支处理" class="headerlink" title="1、分支处理"></a>1、分支处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch [新分支名]</span><br></pre></td></tr></table></figure>
+<p>新建分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout [分支]</span><br><span class="line">git checkout -b [新分支名]</span><br></pre></td></tr></table></figure>
+<p>改变当前操作的分支，具体是改变了HEAD所指向的位置。<br>后者为新建分支并跳转至新分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitb branch -f [分支名] [哈希值]</span><br></pre></td></tr></table></figure>
+<p>将该分支名指向此分支</p>
+<h3 id="2、版本回溯"><a href="#2、版本回溯" class="headerlink" title="2、版本回溯"></a>2、版本回溯</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- [文件]      &#x2F;&#x2F;将该文件回退值上次提交的版本</span><br><span class="line">git reset [想要回溯到的本地分支名或者哈希值]      &#x2F;&#x2F;会改变提交历史，一般用于本地</span><br><span class="line">git revert [想要回溯到的远程分支名或者哈希值]</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、远程分支操作"><a href="#3、远程分支操作" class="headerlink" title="3、远程分支操作"></a>3、远程分支操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch -r       &#x2F;&#x2F;查看所有远程分支</span><br><span class="line">git remote          &#x2F;&#x2F;查看已经配置的远程仓库，-v会显示仓库url</span><br><span class="line">git push origin [远程分支名]    &#x2F;&#x2F;将修改推送至该远程分支</span><br><span class="line">git push origin &lt;commit SHA&gt;:&lt;远程分支&gt; &#x2F;&#x2F;将该提交之前的修改推送至远程分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、提交"><a href="#4、提交" class="headerlink" title="4、提交"></a>4、提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;[info]&quot;          &#x2F;&#x2F;正常提交</span><br><span class="line">git commit -am &quot;[info]&quot;         &#x2F;&#x2F;add并提交</span><br><span class="line">git commit --amend &quot;[info]&quot;     &#x2F;&#x2F;重新提交</span><br><span class="line">git commit --amend --reset-author   &#x2F;&#x2F;修改作者并重新提交</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、状态与比较"><a href="#5、状态与比较" class="headerlink" title="5、状态与比较"></a>5、状态与比较</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git status                  &#x2F;&#x2F;列出当前状态，有哪些文件修改、暂存或者提交了</span><br><span class="line">git status -s&#x2F;--short       &#x2F;&#x2F;列出简要状态</span><br><span class="line">git diff                    &#x2F;&#x2F;比较两个分支、文件或者提交的不同点，显示具体信息</span><br><span class="line">git diff --stat             &#x2F;&#x2F;只列出有不同点的文件</span><br><span class="line">git show [commit]           &#x2F;&#x2F;查看提交，可以使用哈希值与相对引用</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、日志"><a href="#6、日志" class="headerlink" title="6、日志"></a>6、日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git log                     &#x2F;&#x2F;显示日志</span><br><span class="line">-p          &#x2F;&#x2F;显示每个提交的具体差异</span><br><span class="line">-[num]      &#x2F;&#x2F;设置显示的个数</span><br><span class="line">--graph     &#x2F;&#x2F;显示分支合并图</span><br><span class="line">--pretty&#x3D;oneline    &#x2F;&#x2F;每条日志只显示一行</span><br><span class="line">--oneline           &#x2F;&#x2F;每条日志的hash值简化</span><br></pre></td></tr></table></figure>
+
+<h3 id="7、复制提交"><a href="#7、复制提交" class="headerlink" title="7、复制提交"></a>7、复制提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick [commit1, commit2, ...]     &#x2F;&#x2F;将这些提交的内容复制到当前分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="8、git-rebase-与git-merge"><a href="#8、git-rebase-与git-merge" class="headerlink" title="8、git rebase 与git merge"></a>8、git rebase 与git merge</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase master</span><br></pre></td></tr></table></figure>
+<p>前者相当于重新设置当前分支的基线，如果你提交至远程master时，有人已经又提交过，这样执行rebase的话，相当于将当前分支的基线设置在他人提交之后，可以使git的提交先更加清晰。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge master</span><br></pre></td></tr></table></figure>
+<p>merge将会留下两条平行的分支线，最终当本分之提交后，两条分支线汇合。</p>
+<blockquote>
+<p>注意，不要在master分支上使用这两条命令，因为是将其他分支的内容合并到本分支上。</p>
+</blockquote>
+<h3 id="9、git-rebae-i-分支"><a href="#9、git-rebae-i-分支" class="headerlink" title="9、git rebae -i [分支]"></a>9、git rebae -i [分支]</h3><p>使用交互式rebase修改分支，例如合并与拆分commit，交换commit的顺序，更改commit信息等。</p>
+	
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
